@@ -10,6 +10,8 @@ namespace EntityFrameworkSchoolDB
     {
         static void Main(string[] args)
         {
+            var linqToEntityTestingClass = new Classes.L2EQueries();
+            Console.ReadKey();
         }
     }
 }
