@@ -70,28 +70,27 @@ namespace EntityFrameworkSchoolDB.Classes
                         Console.WriteLine("\t" + course.CourseName);
                     }
                 }
-                /*
+                
                 //Nested queries
-                var nestedQuery = (from s in ctx.Students
+                var nestedQuery = from s in ctx.Students
                                   from c in s.Courses
                                   where s.StandardId == 1
                                   orderby s.StudentName ascending
                                   select new
                                   {
                                       s.StudentName,
-                                      c
-                                  }).GroupBy(o => o.c.TeacherId)
-                                  ;
+                                      c.CourseName
+                                  };
                 Console.WriteLine("Nested Query");
                 foreach (var nsQ in nestedQuery)
                 {
-                    //Console.WriteLine(nsQ.StudentName);
-                    /*foreach (var course in nsQ)
+                    Console.WriteLine(nsQ.StudentName);
+                    foreach (var course in nsQ.CourseName)
                     {
-                        Console.WriteLine("\t" + course.StudentName);
+                        Console.WriteLine("\t" + course);
                     }
 
-                }*/
+                }
                 //INNER JOIN without inner join :)
                 var studentsAttemptingToCourses = from c in ctx.Courses
                                   orderby c.CourseName ascending
