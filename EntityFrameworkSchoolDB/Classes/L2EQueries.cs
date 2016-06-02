@@ -1,17 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.Entity;
+using EntityFrameworkSchoolDB.Model;
 
 namespace EntityFrameworkSchoolDB.Classes
 {
     class L2EQueries
     {
         public L2EQueries()
-        {
-            using (var ctx = new SchoolDBEntities())
+        {/*
+            using (var ctx = new SchoolContext())
             {
                 //First/FirstOrDeafault
                 var student = (from s in ctx.Students
@@ -34,7 +31,7 @@ namespace EntityFrameworkSchoolDB.Classes
                 }
                 //GroupBy
                 var students = from s in ctx.Students
-                                group s by s.StandardId into studentsByStandard
+                                group s by s.Standard into studentsByStandard
                                 select studentsByStandard;
                 int i = 0;
                 foreach(var s in students)
@@ -110,6 +107,7 @@ namespace EntityFrameworkSchoolDB.Classes
                     }
                 }
             }
+        */
         }
     }
 }
