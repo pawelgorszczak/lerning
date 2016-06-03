@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
+
 namespace EntityFrameworkSchoolDB.Model
 {
     public class Student
@@ -26,7 +27,7 @@ namespace EntityFrameworkSchoolDB.Model
     }
 }
 
-/* Data anauctions
+/* Data annotations
        public int StudentId { get; set; }
        public string StudentName { get; set; }
        public DateTime? DateOfBirth { get; set; }
