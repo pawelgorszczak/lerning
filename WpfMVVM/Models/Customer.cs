@@ -2,12 +2,15 @@
 
 namespace WpfMVVM.Models
 {
+    using System;
     using System.ComponentModel;
     using System.Runtime.CompilerServices;
     using WpfMVVM.Annotations;
 
-    public class Customer : INotifyPropertyChanged
+    public class Customer : INotifyPropertyChanged, IDataErrorInfo
     {
+        private string _name;
+
         ///<sumary>
         /// Initializes a new instance of the Customer
         /// </sumary>
@@ -16,9 +19,10 @@ namespace WpfMVVM.Models
             Name = customerName;
         }
 
-        private string _name;
+        
+
         /// <summary>
-        /// Gets or sets the Customers name
+        /// Gets or sets the Customers _name
         /// </summary>
         public string Name
         {
@@ -29,7 +33,7 @@ namespace WpfMVVM.Models
                 OnPropertyChanged("Name");
             }
         }
-
+        #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
@@ -37,5 +41,29 @@ namespace WpfMVVM.Models
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        #endregion
+
+        #region IDataErrorInfo
+        public string this[string columnName]
+        {
+            get
+            {
+                if (columnName == "Name")
+                {
+                    if (string.IsNullOrWhiteSpace(Name))
+                    {
+                        Error = "Name cannot be null or empty";
+                    }
+                    else
+                    {
+                        Error = null;
+                    }
+                }
+                return Error;
+            }
+        }
+
+        public string Error { get; private set; }
+        #endregion
     }
 }

@@ -10,14 +10,11 @@ namespace WpfMVVM.Commands
 {
     internal class CustomerUpdateCommand : ICommand
     {
+        private CustomerViewModel _viewModel;
         public CustomerUpdateCommand(CustomerViewModel viewModel)
         {
             _viewModel = viewModel;
         }
-
-        private CustomerViewModel _viewModel;
-
-
         public event EventHandler CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
@@ -26,7 +23,7 @@ namespace WpfMVVM.Commands
 
         public bool CanExecute(object parameter)
         {
-            return _viewModel.CanUpdate;
+            return string.IsNullOrWhiteSpace(_viewModel.Customer.Error);
         }
 
         public void Execute(object parameter)

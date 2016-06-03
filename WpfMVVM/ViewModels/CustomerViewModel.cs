@@ -1,5 +1,7 @@
 ﻿
 
+using WpfMVVM.Views;
+
 namespace WpfMVVM.ViewModels
 {
     using WpfMVVM.Models;
@@ -9,26 +11,18 @@ namespace WpfMVVM.ViewModels
     using Commands;
     internal class CustomerViewModel
     {
+        private Customer _customer;
+        private CustomerInfoViewModel _childViewModel;
+
         /// <summary>
         /// Initialiezes a new instance of the CustomerViewModel class.
         /// </summary>
         public CustomerViewModel()
         {
             _customer = new Customer("Pawel");
+            _childViewModel = new CustomerInfoViewModel() { Info = "Instantiated in CustomerViewModel() ctor."};
             UpdateCommand = new CustomerUpdateCommand(this);
         }
-
-        public bool CanUpdate
-        {
-            get
-            {
-                if (Customer == null)
-                    return false;
-                return !string.IsNullOrWhiteSpace(Customer.Name);
-            }
-        }
-
-        private Customer _customer;
 
         public Customer Customer
         {
@@ -42,7 +36,9 @@ namespace WpfMVVM.ViewModels
 
         public void SaveChanges()
         {
-            Debug.Assert(false, string.Format("(0) was updated.", Customer.Name));
+            CustomerInfoView view = new CustomerInfoView {DataContext = _childViewModel};
+            _childViewModel.Info = Customer.Name + " was updated in the database";
+            view.ShowDialog();
         }
                 
     }

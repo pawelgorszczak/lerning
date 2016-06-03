@@ -6,9 +6,17 @@
         xmlns:local="clr-namespace:WpfMVVM.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
-        <Label>Customer Name</Label>
-        <TextBox  Text="{Binding Customer.Name, UpdateSourceTrigger=PropertyChanged}" Width="136"/>
-        <Button Command="{Binding UpdateCommand}">Update</Button>
-    </StackPanel>
+    <Grid VerticalAlignment="Top" Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        
+        <Label Grid.Column="0">Customer Name</Label>
+        <TextBox Grid.Column="1" Text="{Binding Customer.Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+        <Button Grid.Column="2" Command="{Binding UpdateCommand}">Update</Button>
+        
+    </Grid>
+    
 </Window>
