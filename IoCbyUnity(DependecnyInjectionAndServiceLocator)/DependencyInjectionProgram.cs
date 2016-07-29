@@ -45,6 +45,8 @@ namespace IoCbyUnity_DependecnyInjectionAndServiceLocator_
 
             var serviceLocator = new ServiceLocatorProgram();
 
+            var mef = new MicrosoftExtensibilityFrameworkProgram();
+            mef.Run();
             
             Console.ReadKey();
         }
