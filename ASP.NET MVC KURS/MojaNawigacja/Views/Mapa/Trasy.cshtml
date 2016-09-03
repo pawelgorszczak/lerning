@@ -1,0 +1,31 @@
+﻿@model MojaNawigacja.Models.NawigacjaDatabaseEntities1
+@{
+    ViewBag.Title = "Trasy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Trasy uzytkownikow</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id:</th>
+            <th>Miejsce wyjazdu</th>
+            <th>Miejsce docelowe</th>
+            <th>Data dodania</th>
+            <th>Opcje</th>
+        </tr>
+    </thead>
+
+
+@foreach (var trasa in Model.Adresy)
+{
+    <tr>
+        <td> @Html.Encode(trasa.IdTrasy)</td>
+        <td> @Html.Encode(trasa.MiejsceWyjazdu)</td>
+        <td> @Html.Encode(trasa.MiejsceDocelowe)</td>
+        <td> @Html.Encode(trasa.DataDodania)</td>
+        <td> @Html.ActionLink("Usun", "UsunTrase", trasa)</td>
+    </tr>
+}
+</table>

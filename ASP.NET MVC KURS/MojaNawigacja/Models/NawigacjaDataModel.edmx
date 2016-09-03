@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="NawigacjaDatabaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="NawigacjaDatabaseModelStoreContainer">
+          <EntitySet Name="Adresy" EntityType="NawigacjaDatabaseModel.Store.Adresy" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Adresy">
+          <Key>
+            <PropertyRef Name="IdTrasy" />
+          </Key>
+          <Property Name="IdTrasy" Type="int" Nullable="false" />
+          <Property Name="MiejsceWyjazdu" Type="nvarchar" MaxLength="50" />
+          <Property Name="MiejsceDocelowe" Type="nvarchar" MaxLength="50" />
+          <Property Name="DataDodania" Type="datetime" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NawigacjaDatabaseModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="NawigacjaDatabaseEntities1" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Adresy" EntityType="NawigacjaDatabaseModel.Adresy" />
+        </EntityContainer>
+        <EntityType Name="Adresy">
+          <Key>
+            <PropertyRef Name="IdTrasy" />
+          </Key>
+          <Property Name="IdTrasy" Type="Int32" Nullable="false" />
+          <Property Name="MiejsceWyjazdu" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MiejsceDocelowe" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="DataDodania" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NawigacjaDatabaseModelStoreContainer" CdmEntityContainer="NawigacjaDatabaseEntities1">
+          <EntitySetMapping Name="Adresy">
+            <EntityTypeMapping TypeName="NawigacjaDatabaseModel.Adresy">
+              <MappingFragment StoreEntitySet="Adresy">
+                <ScalarProperty Name="IdTrasy" ColumnName="IdTrasy" />
+                <ScalarProperty Name="MiejsceWyjazdu" ColumnName="MiejsceWyjazdu" />
+                <ScalarProperty Name="MiejsceDocelowe" ColumnName="MiejsceDocelowe" />
+                <ScalarProperty Name="DataDodania" ColumnName="DataDodania" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Default" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
