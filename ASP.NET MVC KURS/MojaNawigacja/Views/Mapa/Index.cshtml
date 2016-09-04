@@ -29,19 +29,22 @@
 
 @using (Html.BeginForm())
 {
+    @Html.ValidationSummary("Popraw poniższe błędy i spróbuj ponownie")
     <div>
         <div class ="editor-label">
-            @Html.LabelFor(m => m.MiejsceWyjazdu, "Miejsce wyjazdu")
+            @Html.LabelFor(m => m.MiejsceWyjazdu)
         </div>
         <div class ="editor-field">
             @Html.TextBoxFor(m => m.MiejsceWyjazdu, new { id = "Text1"})
+            @Html.ValidationMessageFor(m => m.MiejsceWyjazdu)
         </div>
 
         <div class ="editor-label">
-            @Html.LabelFor(m => m.MiejsceDocelowe, "Miejsce docelowe")
+            @Html.LabelFor(m => m.MiejsceDocelowe)
         </div>
         <div class ="editor-field">
             @Html.TextBoxFor(m => m.MiejsceDocelowe, new { id = "Text2"})
+            @Html.ValidationMessageFor(m => m.MiejsceDocelowe)
         </div>
 
         <p>
