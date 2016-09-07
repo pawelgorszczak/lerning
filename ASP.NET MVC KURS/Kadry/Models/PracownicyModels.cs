@@ -38,5 +38,10 @@ namespace Kadry.Models
                 return new ValidationResult("Data zatrudnienia nie może być póżniejsza od daty dzisiejszej");  
             return ValidationResult.Success;
         }
+
+        [Required(ErrorMessage = " Pole Adres Email jest wymagane")]
+        [DisplayName("Adres Email")]
+        [RegularExpression(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", ErrorMessage = ("Niepoprawny adres email"))]
+        public string Email { get; set; }
     }
 }

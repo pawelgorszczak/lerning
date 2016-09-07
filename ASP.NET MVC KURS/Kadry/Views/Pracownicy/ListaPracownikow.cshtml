@@ -22,6 +22,7 @@ else
             <th>Wiek</th>
             <th>Stanowisko</th>
             <th>Data Zatrudnienia</th>
+            <th>Adres Email</th>
         </tr>
         @foreach (var pracownik in Model)
         {
@@ -30,7 +31,8 @@ else
                 <td>@Html.Encode(pracownik.Nazwisko)</td>
                 <td>@Html.Encode(pracownik.Wiek)</td>
                 <td>@Html.Encode(pracownik.Stanowisko)</td>
-                <td>@Html.Encode(pracownik.DataZatrudnienia)</td>
+                <td>@Html.Encode(pracownik.DataZatrudnienia.ToShortDateString())</td>
+                <td>@Html.Encode(pracownik.Email)</td>
             </tr>
         }
     </table>    
