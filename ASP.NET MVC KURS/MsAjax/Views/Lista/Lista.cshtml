@@ -1,0 +1,10 @@
+﻿@model IEnumerable<string>
+
+@if (Model != null)
+{
+    @Html.ListBox("Lista", new SelectList(@Model), new {style ="width: 410px; height: 300px" })
+}
+else
+{
+    <p>Lista jest pusta</p>
+}

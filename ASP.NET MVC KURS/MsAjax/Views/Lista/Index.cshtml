@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/MicrosoftAjax.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/MicrosoftMvcAjax.js")" type="text/javascript"></script>
+
+<p>
+    Czas ostatniego odświeżania całej witryny:
+    @DateTime.Now.ToLocalTime().ToLongTimeString()
+</p>
+
+@using (Ajax.BeginForm(new AjaxOptions { UpdateTargetId = "ListaElementow",
+                                                                Confirm = "Potwierdź dodanie elementu do listy",
+                                                                OnSuccess= "alert('Pomyślnie dodano element do listy')"}))
+{
+    <div class="editor-field">
+        @Html.TextBox("ElementDoDodania", null, new { style = "width: 250px" }) <input type="submit" value="Dodaj do listy" style="width: 150px"/>
+    </div>
+}
+
+<div id="ListaElementow">
+    @{Html.RenderPartial("Lista");}
+</div>
