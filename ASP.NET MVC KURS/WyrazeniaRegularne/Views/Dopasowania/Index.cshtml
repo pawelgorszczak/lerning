@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("DodajElementDoSprawdzenia", "Dopasowania"))
+{
+    <div class="editor-label">
+        @Html.Label("Dodaj wyrażenie do sprawdzenia")
+    </div>
+    <div class="editor-field">
+        @Html.TextBox("ElementDoSprawdzenia")
+        <input type="submit" value="Dodaj do listy"/>
+    </div>
+}
+@using (Html.BeginForm("WyczyscListe", "Dopasowania"))
+{
+    <div class="editor-label">
+        @Html.Label("Lista wyrażeń do sprawdzenia (Wyrazenia niepasujace do wzorca sa podswietlone)")
+    </div>
+    <div class="editor-field">
+        @Html.ListBox("ListaWyrazenDoSprawdzenia", null, new { style= "widht: 350px; height: 300px" })
+    </div>
+    
+    <p>
+        <input type="submit" value="Wyczyść listę"/>
+    </p>
+}
+@using (Html.BeginForm("SprawdzDopasowania", "Dopasowania"))
+{
+    <div class="editor-label">
+        @Html.Label("Podaj wzorzec")
+    </div>
+    <div class="editor-field">
+        @Html.TextBox("Wzorzec")
+        <input type="submit" value="Dopasuj wyrażenia do wzorca"/>
+    </div>
+}
