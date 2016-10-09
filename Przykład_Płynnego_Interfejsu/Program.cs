@@ -58,7 +58,6 @@ namespace Przykład_Płynnego_Interfejsu
             _employee.Age = age;
             return _fluent;
         }
-
         public Employee Create()
         {
             return _employee;
