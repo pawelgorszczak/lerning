@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:tns="http://www.mf.gov.pl/schematy/DI/UslugiUBD/2013/11/05" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://www.mf.gov.pl/schematy/DI/UslugiUBD/2013/11/05" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="WyslijDokumentZbiorczyPytanie" type="tns:DokumentPytanie" />
+  <xs:element name="WyslijDokumentZbiorczyOdpowiedz" type="tns:DokumentOdpowiedz" />
+  <xs:element name="WyslijNiepodpisanyDokumentZbiorczyPytanie" type="tns:DokumentPytanie" />
+  <xs:element name="WyslijNiepodpisanyDokumentZbiorczyOdpowiedz" type="tns:DokumentOdpowiedz" />
+  <xs:element name="WyslijDokumentPytanie" type="tns:DokumentPytanie" />
+  <xs:element name="WyslijDokumentOdpowiedz" type="tns:DokumentOdpowiedz" />
+  <xs:element name="WyslijNiepodpisanyDokument" type="tns:DokumentPytanie" />
+  <xs:element name="WyslijNiepodpisanyDokumentOdpowiedz" type="tns:DokumentOdpowiedz" />
+  <xs:element name="WyslijDokumentZalacznikBinarnyPytanie" type="tns:DokumentZalacznikBinarnyPytanie" />
+  <xs:element name="WyslijDokumentZalacznikBinarnyOdpowiedz" type="tns:DokumentOdpowiedz" />
+  <xs:element name="WyslijPismoOgolnePytanie" type="tns:DokumentPytanie" />
+  <xs:element name="WyslijPismoOgolneOdpowiedz" type="tns:DokumentOdpowiedz" />
+  <xs:element name="PobierzUpoPytanie">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="NumerReferencyjny" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="Jezyk">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="de" />
+              <xs:enumeration value="en" />
+              <xs:enumeration value="pl" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PobierzUpoOdpowiedz">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Upo" type="xs:string" />
+        <xs:element name="Status" type="xs:int" />
+        <xs:element name="StatusOpis" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="DokumentPytanie">
+    <xs:sequence>
+      <xs:element xmime:expectedContentTypes="application/octet-stream" name="Dokument" type="xs:base64Binary" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Jezyk">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="de" />
+            <xs:enumeration value="en" />
+            <xs:enumeration value="pl" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DokumentZalacznikBinarnyPytanie">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DokumentPytanie">
+        <xs:sequence>
+          <xs:element xmime:expectedContentTypes="application/octet-stream" name="Zalacznik" type="xs:base64Binary" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DokumentOdpowiedz">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="refId" type="xs:string" />
+      <xs:element name="status" type="xs:int" />
+      <xs:element name="statusOpis" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

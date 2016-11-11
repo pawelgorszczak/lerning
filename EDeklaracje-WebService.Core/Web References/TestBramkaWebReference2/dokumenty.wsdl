@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ubd="http://www.mf.gov.pl/uslugiBiznesowe/DI/UslugiUBD/2013/11/05" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.mf.gov.pl/schematy/DI/UslugiUBD/2013/11/05" targetNamespace="http://www.mf.gov.pl/uslugiBiznesowe/DI/UslugiUBD/2013/11/05" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import schemaLocation="https://test-ubd.mf.gov.pl/ubd/UslugiUBD?xsd=UslugiUBD.xsd" namespace="http://www.mf.gov.pl/schematy/DI/UslugiUBD/2013/11/05" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="WyslijDokumentOdpowiedz">
+    <wsdl:part name="odpowiedz" element="tns:WyslijDokumentOdpowiedz" />
+  </wsdl:message>
+  <wsdl:message name="WyslijNiepodpisanyDokumentPytanie">
+    <wsdl:part name="pytanie" element="tns:WyslijNiepodpisanyDokument" />
+  </wsdl:message>
+  <wsdl:message name="WyslijPismoOgolneOdpowiedz">
+    <wsdl:part name="odpowiedz" element="tns:WyslijPismoOgolneOdpowiedz" />
+  </wsdl:message>
+  <wsdl:message name="WyslijDokumentZalacznikBinarnyPytanie">
+    <wsdl:part name="pytanie" element="tns:WyslijDokumentZalacznikBinarnyPytanie" />
+  </wsdl:message>
+  <wsdl:message name="WyslijPismoOgolnePytanie">
+    <wsdl:part name="pytanie" element="tns:WyslijPismoOgolnePytanie" />
+  </wsdl:message>
+  <wsdl:message name="WyslijNiepodpisanyDokumentZbiorczyOdpowiedz">
+    <wsdl:part name="odpowiedz" element="tns:WyslijNiepodpisanyDokumentZbiorczyOdpowiedz" />
+  </wsdl:message>
+  <wsdl:message name="WyslijDokumentPytanie">
+    <wsdl:part name="pytanie" element="tns:WyslijDokumentPytanie" />
+  </wsdl:message>
+  <wsdl:message name="WyslijDokumentZbiorczyOdpowiedz">
+    <wsdl:part name="odpowiedz" element="tns:WyslijDokumentZbiorczyOdpowiedz" />
+  </wsdl:message>
+  <wsdl:message name="PobierzUpoOdpowiedz">
+    <wsdl:part name="odpowiedz" element="tns:PobierzUpoOdpowiedz" />
+  </wsdl:message>
+  <wsdl:message name="WyslijDokumentZbiorczyPytanie">
+    <wsdl:part name="pytanie" element="tns:WyslijDokumentZbiorczyPytanie" />
+  </wsdl:message>
+  <wsdl:message name="PobierzUpoPytanie">
+    <wsdl:part name="pytanie" element="tns:PobierzUpoPytanie" />
+  </wsdl:message>
+  <wsdl:message name="WyslijDokumentZalacznikBinarnyOdpowiedz">
+    <wsdl:part name="odpowiedz" element="tns:WyslijDokumentZalacznikBinarnyOdpowiedz" />
+  </wsdl:message>
+  <wsdl:message name="WyslijNiepodpisanyDokumentZbiorczyPytanie">
+    <wsdl:part name="pytanie" element="tns:WyslijNiepodpisanyDokumentZbiorczyPytanie" />
+  </wsdl:message>
+  <wsdl:message name="WyslijNiepodpisanyDokumentOdpowiedz">
+    <wsdl:part name="odpowiedz" element="tns:WyslijNiepodpisanyDokumentOdpowiedz" />
+  </wsdl:message>
+  <wsdl:portType name="UslugiUBD">
+    <wsdl:operation name="WyslijDokumentZbiorczy">
+      <wsdl:input message="ubd:WyslijDokumentZbiorczyPytanie" />
+      <wsdl:output message="ubd:WyslijDokumentZbiorczyOdpowiedz" />
+    </wsdl:operation>
+    <wsdl:operation name="PobierzUpo">
+      <wsdl:input message="ubd:PobierzUpoPytanie" />
+      <wsdl:output message="ubd:PobierzUpoOdpowiedz" />
+    </wsdl:operation>
+    <wsdl:operation name="WyslijDokument">
+      <wsdl:input message="ubd:WyslijDokumentPytanie" />
+      <wsdl:output message="ubd:WyslijDokumentOdpowiedz" />
+    </wsdl:operation>
+    <wsdl:operation name="WyslijNiepodpisanyDokument">
+      <wsdl:input message="ubd:WyslijNiepodpisanyDokumentPytanie" />
+      <wsdl:output message="ubd:WyslijNiepodpisanyDokumentOdpowiedz" />
+    </wsdl:operation>
+    <wsdl:operation name="WyslijNiepodpisanyDokumentZbiorczy">
+      <wsdl:input message="ubd:WyslijNiepodpisanyDokumentZbiorczyPytanie" />
+      <wsdl:output message="ubd:WyslijNiepodpisanyDokumentZbiorczyOdpowiedz" />
+    </wsdl:operation>
+    <wsdl:operation name="WyslijPismoOgolne">
+      <wsdl:input message="ubd:WyslijPismoOgolnePytanie" />
+      <wsdl:output message="ubd:WyslijPismoOgolneOdpowiedz" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UslugiUBDSoap11" type="ubd:UslugiUBD">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="WyslijDokumentZbiorczy">
+      <soap:operation soapAction="urn:WyslijDokumentZbiorczy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PobierzUpo">
+      <soap:operation soapAction="urn:PobierzUpo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WyslijDokument">
+      <soap:operation soapAction="urn:WyslijDokument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WyslijNiepodpisanyDokument">
+      <soap:operation soapAction="urn:WyslijNiepodpisanyDokument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WyslijNiepodpisanyDokumentZbiorczy">
+      <soap:operation soapAction="urn:WyslijNiepodpisanyDokumentZbiorczy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WyslijPismoOgolne">
+      <soap:operation soapAction="urn:WyslijPismoOgolne" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UslugiUBDSoap" type="ubd:UslugiUBD">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="WyslijDokumentZbiorczy">
+      <soap12:operation soapAction="urn:WyslijDokumentZbiorczy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PobierzUpo">
+      <soap12:operation soapAction="urn:PobierzUpo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WyslijDokument">
+      <soap12:operation soapAction="urn:WyslijDokument" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WyslijNiepodpisanyDokument">
+      <soap12:operation soapAction="urn:WyslijNiepodpisanyDokument" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WyslijNiepodpisanyDokumentZbiorczy">
+      <soap12:operation soapAction="urn:WyslijNiepodpisanyDokumentZbiorczy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WyslijPismoOgolne">
+      <soap12:operation soapAction="urn:WyslijPismoOgolne" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UslugiUBD">
+    <wsdl:port name="UslugiUBDPort" binding="ubd:UslugiUBDSoap">
+      <soap12:address location="https://test-ubd.mf.gov.pl/ubd/UslugiUBD" />
+    </wsdl:port>
+    <wsdl:port name="UslugiUBD11Port" binding="ubd:UslugiUBDSoap11">
+      <soap:address location="https://test-ubd.mf.gov.pl/ubd/UslugiUBD" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -7,6 +7,21 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Image Name="x" Source="{Binding ChartLibrary.ChartBitMap}" Stretch="Fill"></Image>
+        <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <Button Click="Button_Click">Redraw 100 times</Button>
+                <Button Click="ButtonBase_OnClick">Redraw 100 times</Button>
+            </StackPanel>
+        <Grid Name="GridX" Grid.Row="1">
+            
+        </Grid>
+        <!--<Image Grid.Row="1" MouseDown="X_OnMouseDown" Name="x" Source="{Binding ChartLibrary.ChartBitMap}" SizeChanged="X_OnSizeChanged"></Image>
+        <Image Grid.Row="2" Name="Image2" Source="{Binding ChatLibrary.BitMap}" SizeChanged="Image2_OnSizeChanged"></Image>-->
+        
+        
+
     </Grid>
 </Window>

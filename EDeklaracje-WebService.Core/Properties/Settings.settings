@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="EDeklaracje_WebService.Core.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="EDeklaracje_WebService_Core_TestBramkaWebReference2_UslugiUBD" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://test-ubd.mf.gov.pl/ubd/UslugiUBD</Value>
+    </Setting>
+    <Setting Name="EDeklaracje_WebService_Core_BramkaWebReference_UslugiUBD" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://ubd.mf.gov.pl/uslugi/dokumenty</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
